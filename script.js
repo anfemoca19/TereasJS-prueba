@@ -14,17 +14,24 @@ function renderizarTareas(){
   listaTereas.innerHTML = "";
 
   arrTareas.forEach((tarea , index)=>{
+    // creamos el contenedor para la data
     let itemTarea = document.createElement('div');
-    let textoTarea = document.createElement('span');
-    textoTarea.innerText = tarea.nombre + " " + tarea.tarea;
 
-    let eliminarTareas = document.createElement('button');
-      eliminarTareas.innerText= "Eliminar";
+    // creamos la data concatenada
+    let textoTarea = document.createElement('span');
+    textoTarea.innerText = tarea.nombre + " " + tarea.tarea + " ";
+
+
+    // creamos icono eleiminar
+    let eliminarTareas = document.createElement('img');
+      eliminarTareas.src = "./imagenes/eliminarIcon.png";
+      eliminarTareas.width = 15
 
       eliminarTareas.addEventListener("click", ()=>{
         eliminarTarea(index);
       })
 
+      
     itemTarea.appendChild(textoTarea);
     itemTarea.appendChild(eliminarTareas);
 
@@ -45,8 +52,8 @@ function eliminarTarea(index){
     console.log(arrTareas);
 }
 
-function agregarTarea(){
-
+function agregarTarea(event){
+  event.preventDefault();
   let nombre = nombreInput.value;
   let tarea = tareaInput.value;
 
