@@ -43,3 +43,9 @@ body {
   color: #ffffff;
   cursor: pointer;
 }
+
+.contenedor-tabla {
+  background-color: #e5dfdf;
+  color: black;
+  height: 50px;
+}

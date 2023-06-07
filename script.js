@@ -1,7 +1,79 @@
 
-
+// array para la listar las tareas
 const arrTareas = [];
 
 // Obtener la data de los inputs
+let nombreInput = document.getElementById('nombreInput');
+let tareaInput =  document.getElementById('tareaInput');
+let btnAgregar = document.getElementById('agregarTarea')
+let listaTereas = document.getElementById('listaTareas')
 
-let nombreInput = document.getElementById('')
+
+// // funcion para renderizar
+function renderizarTareas(){
+  listaTereas.innerHTML = "";
+
+  arrTareas.forEach((tarea , index)=>{
+    let itemTarea = document.createElement('div');
+    let textoTarea = document.createElement('span');
+    textoTarea.innerText = tarea.nombre + " " + tarea.tarea;
+
+    let eliminarTareas = document.createElement('button');
+      eliminarTareas.innerText= "Eliminar";
+
+      eliminarTareas.addEventListener("click", ()=>{
+        eliminarTarea(index);
+      })
+
+    itemTarea.appendChild(textoTarea);
+    itemTarea.appendChild(eliminarTareas);
+
+    listaTereas.appendChild(itemTarea);
+  })
+
+}
+
+function eliminarTarea(index){
+
+  // Eliminar del arrayt
+  arrTareas.splice(index,1);
+
+  // remderizar en el dom
+  renderizarTareas();
+
+  // mostrar en cosola el array de ojetos
+    console.log(arrTareas);
+}
+
+function agregarTarea(){
+
+  let nombre = nombreInput.value;
+  let tarea = tareaInput.value;
+
+  // validar que los inputs tengan datos
+  if(nombre == "" || tarea == "" ){
+    alert("Debes ingresar el nombre o la tarea.")
+    return;
+  } 
+
+  // Objeto para cada tarea
+  let objtTarea = {
+    nombre: nombre,
+    tarea: tarea
+  };
+
+  // agregamos cada objeto en el array
+  arrTareas.push(objtTarea)
+
+  // Limpiamos los inputs
+  nombreInput.value = "";
+  tareaInput.value = "";
+
+  // remderizar en el dom
+  renderizarTareas();
+
+  // mostrar en cosola el array de ojetos
+    console.log(arrTareas);
+}
+
+btnAgregar.addEventListener('click', agregarTarea)
