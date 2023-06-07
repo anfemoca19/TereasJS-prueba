@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+  <title>Tareas</title>
 </head>
 <body>
   <header>
@@ -13,20 +14,27 @@
   <main>
     <section>
       <form action="">
-        <div>
-          <label for="nameInput">Nombre</label>
-          <input  type="text" id="nameInput" placeholder="Ingresa tu nombre">
-          <label for="tareaInput">Tarea</label>
-          <input type="text" id="tareaInput">
-          <button id="agregarTarea">Agregar</button>
+        <div class="container">
+          <div class="container-inputs">
+            <label for="nameInput">Nombre</label>
+            <input  type="text"  class="inputs" id="nameInput" placeholder="Ingresa tu nombre">
+          </div>
+        <div class="container-inputs">
+        <label for="tareaInput">Tarea</label>
+        <input type="text" class="inputs" id="tareaInput" placeholder="Ingresa la tarea">
+        </div>
+        <div class="container-btn">
+          <button  class="btn-add" id="agregarTarea">Agregar</button>
+        </div>
         </div>
       </form>
     </section>
     <section>
-      <div></div>
+      <div id="listaTareas"></div>
     </section>
   </main>
-  
+
   <script src="/script.js" ></script>
+  <script src="https://kit.fontawesome.com/b5f24e1807.js" crossorigin="anonymous"></script>
 </body>
 </html>
